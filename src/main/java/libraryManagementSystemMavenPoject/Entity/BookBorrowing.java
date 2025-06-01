@@ -15,7 +15,7 @@ public class BookBorrowing {
     private LocalDate returnDate;
 
     @Column(nullable = false)
-    private String borrowerUsername; // giriş yapan kullanıcı adı
+    private String borrowerUsername;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")

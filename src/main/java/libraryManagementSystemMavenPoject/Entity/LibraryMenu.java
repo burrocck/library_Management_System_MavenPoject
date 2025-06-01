@@ -34,7 +34,7 @@ public class LibraryMenu {
     private boolean isLoggedIn = false;
 
     public void start() {
-        loginOrRegister(); // kullanıcı girişi olmadan sistem çalışmaz
+        loginOrRegister();
 
         while (true) {
             System.out.println("\n===== KÜTÜPHANE SİSTEMİ MENÜ =====");
@@ -71,7 +71,7 @@ public class LibraryMenu {
         }
     }
 
-    // === 1. KULLANICI GİRİŞİ ===
+    // === 1. USER LOGIN ===
     private void loginOrRegister() {
         while (currentUser == null) {
             System.out.println("\n1. Giriş yap");
@@ -134,7 +134,7 @@ public class LibraryMenu {
         System.out.print("Stok: ");
         int stock = Integer.parseInt(scanner.nextLine());
 
-        // Yazar
+        // WRİTER
         System.out.print("Yazar adı: ");
         String authorName = scanner.nextLine();
 
@@ -144,7 +144,7 @@ public class LibraryMenu {
         author.setCountry("Bilinmiyor");
         authorService.addAuthor(author);
 
-        // Yayın evi
+        // PUBLISHING HOUSE
         System.out.print("Yayınevi adı: ");
         String pubName = scanner.nextLine();
         Publisher publisher = new Publisher();
@@ -153,7 +153,7 @@ public class LibraryMenu {
         publisher.setAddress("Bilinmiyor");
         publisherService.addPublisher(publisher);
 
-        // Kategori
+        // CATEGORY
         System.out.print("Kategori adı: ");
         String catName = scanner.nextLine();
         Category category = new Category();
@@ -235,7 +235,7 @@ public class LibraryMenu {
             System.out.println("Henüz kitap ödünç almadınız.");
         }
     }
-    // === 2. KİTAP ARA ===
+    // === 6. SEARCH BOOK ===
 
     private void searchBook() {
         System.out.print("Aranacak kitap adı: ");
@@ -253,7 +253,7 @@ public class LibraryMenu {
             System.out.println("📕 Eşleşen kitap bulunamadı.");
         }
     }
-// === 3. KİTAP GÜNCELLE ===
+// === 7. UPDATE BOOK ===
 
     private void updateBook() {
         listBooks();
@@ -282,7 +282,7 @@ public class LibraryMenu {
         System.out.println("✅ Kitap güncellendi.");
     }
 
-// === 4. KİTAP SİL ===
+// === 8. DELETE BOOK ===
 
     private void deleteBook() {
         if (currentUser.getRole() != User.Role.ADMIN) {
